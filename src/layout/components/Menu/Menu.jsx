@@ -16,7 +16,7 @@ export default function Menu() {
 export function MenuItem({ title, href, Icon }) {
     const match = useMatch(href);
     return (
-        <ListItemButton component={Link} to={href} selected={match}>
+        <ListItemButton component={Link} to={href} selected={!!match}>
             {!!Icon && (
                 <ListItemIcon><Icon/></ListItemIcon>
             )}
