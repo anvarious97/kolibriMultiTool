@@ -1,5 +1,10 @@
 import * as React from 'react';
-import {HashRouter, Route, Routes } from "react-router-dom";
+import {
+    createHashRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider,
+} from "react-router-dom";
 import '/src/styles/app.scss';
 import {
     createTheme,
@@ -7,7 +12,17 @@ import {
     ThemeProvider,
 } from "@mui/material";
 import HomeScreen from "/src/screens/HomeScreen";
-import ProjectsScreen from "../screens/ProjectsScreen";
+import ProjectsScreen from "../screens/project/ProjectsScreen";
+import ProjectScreen from "../screens/project/ProjectScreen";
+import {ProjectScreenLoader} from "../screens/project/ProjectScreen/ProjectScreen";
+
+const Router = (
+    <>
+        <Route path="/" element={<HomeScreen/>}/>
+        <Route path="/projects" element={<ProjectsScreen/>}/>
+        <Route path="/projects/:slug" element={<ProjectScreen/>} loader={ProjectScreenLoader}/>
+    </>
+);
 
 function App() {
     const defaultTheme = createTheme({
@@ -18,13 +33,8 @@ function App() {
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <HashRouter>
-                <CssBaseline />
-                <Routes>
-                    <Route path="/" element={<HomeScreen/>}/>
-                    <Route path="/projects" element={<ProjectsScreen/>}/>
-                </Routes>
-            </HashRouter>
+            <CssBaseline />
+            <RouterProvider router={createHashRouter(createRoutesFromElements(Router))} />
         </ThemeProvider>
     )
 }
