@@ -2,10 +2,10 @@ import * as React from "react";
 import Header from "../Header";
 import {Box, Container, Toolbar} from "@mui/material";
 
-export default function Layout({ children, title }) {
+export default function Layout({ children, headerProps }) {
     return (
         <Box sx={{ display: 'flex' }}>
-            <Header title={title}/>
+            <Header {...headerProps}/>
             <Box
                 component="main"
                 sx={(theme) => ({

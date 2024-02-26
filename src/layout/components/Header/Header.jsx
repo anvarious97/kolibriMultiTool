@@ -4,7 +4,7 @@ import * as React from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Menu from "../Menu";
 
-export default function Header({ title }) {
+export default function Header({ title, toolbar }) {
     const [open, setOpen] = React.useState(false);
 
     function toggleMenu() {
@@ -42,15 +42,17 @@ export default function Header({ title }) {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Typography
-                        component="h1"
-                        variant="h6"
-                        color="inherit"
-                        noWrap
-                        sx={{flexGrow: 1}}
-                    >
-                        {title ?? 'Kolibri Multi Tool'}
-                    </Typography>
+                    {toolbar ?? (
+                        <Typography
+                            component="h1"
+                            variant="h6"
+                            color="inherit"
+                            noWrap
+                            sx={{flexGrow: 1}}
+                        >
+                            {title ?? 'Kolibri Multi Tool'}
+                        </Typography>
+                    )}
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" sx={(theme) => ({
@@ -63,8 +65,8 @@ export default function Header({ title }) {
                         duration: theme.transitions.duration.enteringScreen,
                     }),
                     boxSizing: 'border-box',
+                    overflowX: 'hidden',
                     ...(!open && {
-                        overflowX: 'hidden',
                         transition: theme.transitions.create('width', {
                             easing: theme.transitions.easing.sharp,
                             duration: theme.transitions.duration.leavingScreen,

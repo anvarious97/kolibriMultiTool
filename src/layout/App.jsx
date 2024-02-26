@@ -20,7 +20,7 @@ const Router = (
     <>
         <Route path="/" element={<HomeScreen/>}/>
         <Route path="/projects" element={<ProjectsScreen/>}/>
-        <Route path="/projects/:slug" element={<ProjectScreen/>} loader={ProjectScreenLoader}/>
+        <Route path="/projects/:id" element={<ProjectScreen/>} loader={ProjectScreenLoader}/>
     </>
 );
 
