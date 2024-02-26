@@ -1,8 +1,20 @@
 const ProjectPointSchema = {
     type: 'object',
     properties: {
+        project_id: {
+            type: 'string',
+            required: true
+        },
+        parent_id: {
+            type: 'string',
+        },
         title: {
             type: 'string',
+            required: true,
+        },
+        order: {
+            type: 'integer',
+            default: 0
         },
         positive: {
             type: ['integer', 'null'],
@@ -14,7 +26,7 @@ const ProjectPointSchema = {
             type: ['integer', 'null'],
         },
     },
-    required: ["title"],
+    required: ['project_id', 'title'],
     additionalProperties: true
 }
 

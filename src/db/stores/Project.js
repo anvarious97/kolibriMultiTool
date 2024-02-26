@@ -21,26 +21,37 @@ class ProjectStore {
     }
 
     create(data) {
-        const isValid = this.validate(data);
-        if (isValid) {
+        if (this.validate(data)) {
             return this.db.insert(data);
+        } else {
+            return {
+                error: true,
+                errors: this.schemaValidator.errors
+            }
         }
     }
 
-    read(_id) {
+    update(_id, data) {
+        if (this.validate(data)) {
+            return this.db.update({ _id }, data, { returnUpdatedDocs: true });
+        } else {
+            return {
+                error: true,
+                errors: this.schemaValidator.errors
+            }
+        }
+    }
+
+    get(_id) {
         return this.db.findOne({_id}).exec()
     }
 
-    readAll() {
-        return this.db.find()
+    getAll() {
+        return this.db.find().sort({ order: 1 }).exec()
     }
 
-    readActive() {
-        return this.db.find({isDone: false}).exec();
-    }
-
-    archive({_id}) {
-        return this.db.update({_id}, {$set: {isDone: true}})
+    whereTitle(title) {
+        return this.db.find({title}).exec()
     }
 }
 

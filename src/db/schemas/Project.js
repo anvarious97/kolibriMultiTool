@@ -1,18 +1,16 @@
-import ProjectPointSchema from "./ProjectPoint";
-
 const ProjectSchema = {
     type: 'object',
     properties: {
         title: {
             type: 'string',
         },
-        points: {
-            type: 'array',
-            items: ProjectPointSchema
+        order: {
+            type: 'integer',
+            default: 0
         }
     },
-    required: ["title"],
-    additionalProperties: true
+    additionalProperties: true,
+    required: ['title']
 }
 
 export default ProjectSchema;
