@@ -6,11 +6,9 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import '/src/styles/app.scss';
-import {
-    createTheme,
-    CssBaseline,
-    ThemeProvider,
-} from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import createTheme from "@mui/material/styles/createTheme";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import HomeScreen from "/src/screens/HomeScreen";
 import ProjectsScreen from "../screens/project/ProjectsScreen";
 import ProjectScreen from "../screens/project/ProjectScreen";

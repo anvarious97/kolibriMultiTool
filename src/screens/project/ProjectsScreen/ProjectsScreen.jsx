@@ -2,7 +2,8 @@ import * as React from 'react';
 import styles from "./ProjectsScreen.module.scss";
 import Layout from "/src/layout/components/Layout";
 import {useState} from "react";
-import {Box, Button} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
 
 export default function ProjectsScreen() {

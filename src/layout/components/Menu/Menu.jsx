@@ -1,5 +1,7 @@
 import * as React from "react";
-import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import {Link, useMatch} from "react-router-dom";

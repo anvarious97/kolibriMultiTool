@@ -1,6 +1,8 @@
 import * as React from "react";
 import Header from "../Header";
-import {Box, Container, Toolbar} from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Toolbar from "@mui/material/Toolbar";
 
 export default function Layout({ children, headerProps }) {
     return (
